@@ -36,6 +36,14 @@ add_button = tk.Button(window, text="Add")
 delete_button = tk.Button(window, text="Delete")
 task_listbox = tk.Listbox(window)
 
+# Create scrollbar
+scrollbar = tk.Scrollbar(window)
+scrollbar.pack(side="right", fill="y")
+
+# Configure scrollbar for task_listbox
+task_listbox.configure(yscrollcommand=scrollbar.set)
+scrollbar.configure(command=task_listbox.yview)
+
 # Add button click events
 add_button.bind("<Button-1>", add_task)
 delete_button.bind("<Button-1>", delete_task)
