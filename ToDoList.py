@@ -11,8 +11,12 @@ def add_task(event):
 
 # Function to delete a task
 def delete_task(event):
-  task = task_listbox.get(tk.ANCHOR)
-  tasks.remove(task)
+  try:
+    task = task_listbox.get(tk.ANCHOR)
+    tasks.remove(task)
+  except ValueError:
+    # Task is not in list, so do nothing
+    pass
   update_list()
 
 # Function to update the listbox
